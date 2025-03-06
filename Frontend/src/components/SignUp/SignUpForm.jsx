@@ -23,7 +23,8 @@ export default function SignupForm() {
       emailId: data.emailId, 
       password: data.password,
       businessName: data.businessName,
-      location: data.location,
+      city: data.city,
+      state: data.state,
       role: data.role,
     };
 
@@ -43,6 +44,7 @@ export default function SignupForm() {
       setSuccessMessage('Signup successful!');
       setErrorMessage('');
       reset();
+      
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -117,10 +119,18 @@ export default function SignupForm() {
             />
             <TextField
               fullWidth
-              label="Location"
-              {...register('location', { required: 'Location is required' })}
-              error={!!errors.location}
-              helperText={errors.location?.message}
+              label="City"
+              {...register('city', { required: 'City is required' })}
+              error={!!errors.city}
+              helperText={errors.city?.message}
+              margin="dense"
+            />
+            <TextField
+              fullWidth
+              label="State"
+              {...register('state', { required: 'State is required' })}
+              error={!!errors.state}
+              helperText={errors.state?.message}
               margin="dense"
             />
             <FormControl fullWidth margin="dense">

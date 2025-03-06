@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
 const Calendar = () => {
+  const calendarUrl =
+    "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&title=Event%20Calendar&src=ZmUwOTVkYTY3YTNhZjgzOWYyNTRhMDgwNzA5ZmRkZWU5NjZmZDJlMWQ4ZmUwNjA1MmUxYjZiMDkwOTMyODMyNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23E4C441";
+
+  const [iframeSrc, setIframeSrc] = useState(calendarUrl);
 
   const handleAddToCalendar = () => {
     const url =
@@ -18,23 +22,36 @@ const Calendar = () => {
     );
   };
 
+  // Function to refresh the iframe
+  const refreshCalendar = () => {
+    setIframeSrc(""); // Clear the src to force a re-render
+    setTimeout(() => setIframeSrc(calendarUrl), 100); // Reapply the src after a short delay
+  };
 
   return (
     <div className="calendar">
-      <iframe
-        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&title=Event%20Calendar&src=ZmUwOTVkYTY3YTNhZjgzOWYyNTRhMDgwNzA5ZmRkZWU5NjZmZDJlMWQ4ZmUwNjA1MmUxYjZiMDkwOTMyODMyNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23E4C441"
-        style={{ border: "solid 2px #ff7b00" }}
-        width="800"
-        height="600"
-        frameBorder="0"
-      ></iframe>
+      {iframeSrc && (
+        <iframe
+          key={iframeSrc} // Changing the key forces React to re-render the iframe
+          src={iframeSrc}
+          style={{ border: "solid 2px #ff7b00", borderRadius: "5px" }}
+          width="800"
+          height="600"
+          frameBorder="0"
+        ></iframe>
+      )}
 
       <div className="calendar-buttons" style={{ marginTop: "10px" }}>
-        <button className="btn" onClick={handleAddToCalendar}>Add to Calendar</button>
-        <button className="btn" onClick={() => window.location.reload()}>Refresh Page</button>
+        <button className="btn" onClick={handleAddToCalendar}>
+          Add to Calendar
+        </button>
+        <button className="btn" onClick={refreshCalendar}>
+          Refresh Calendar
+        </button>
       </div>
     </div>
   );
 };
 
 export default Calendar;
+

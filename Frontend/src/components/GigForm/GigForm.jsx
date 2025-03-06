@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TextField, Box, Button, Typography, Alert } from "@mui/material";
 
-const GigForm = () => {
+const GigForm = ({ addNewGig }) => {
   const [formData, setFormData] = useState({
     gigTitle: "",
     gigDate: "",
     gigDescription: "",
-    location: "",
+    city: "",
+    state: "",
+    contactLink: "",
   });
 
   const [submitResult, setSubmitResult] = useState(""); // For displaying the result of the submission
@@ -33,6 +35,10 @@ const GigForm = () => {
 
       const data = await response.json();
       console.log("Gig created:", formData);
+
+      // Call the callback to add the new gig to the list in the parent component
+      addNewGig(formData);
+
       setSubmitResult("Gig posted successfully!");
 
       // Reset the form after successful submission
@@ -40,7 +46,9 @@ const GigForm = () => {
         gigTitle: "",
         gigDate: "",
         gigDescription: "",
-        location: "",
+        city: "",
+        state: "",
+        contactLink: "",
       });
     } catch (error) {
       console.error("Error creating gig:", error);
@@ -56,7 +64,6 @@ const GigForm = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        maxWidth: "600px",
         margin: "0 auto",
         backgroundColor: "#f5f5f5",
         border: "2px solid #ff7b00",
@@ -105,11 +112,31 @@ const GigForm = () => {
           sx={{ mb: 2 }}
         />
         <TextField
-          label="Location"
+          label="City"
           variant="outlined"
           fullWidth
-          name="location"
-          value={formData.location}
+          name="city"
+          value={formData.city}
+          onChange={handleChange}
+          required
+          sx={{ mb: 2 }}
+        />
+          <TextField
+          label="State"
+          variant="outlined"
+          fullWidth
+          name="state"
+          value={formData.state}
+          onChange={handleChange}
+          required
+          sx={{ mb: 2 }}
+        />
+          <TextField
+          label="Contact Link"
+          variant="outlined"
+          fullWidth
+          name="contactLink"
+          value={formData.contactLink}
           onChange={handleChange}
           required
           sx={{ mb: 2 }}
@@ -138,4 +165,3 @@ const GigForm = () => {
 };
 
 export default GigForm;
-

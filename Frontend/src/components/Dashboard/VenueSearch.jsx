@@ -19,7 +19,14 @@ export default function VenueSearch() {
   };
 
   return (
-    <div style={{ padding: "20px", textAlign: "center", border: "2px solid #ff7b00", backgroundColor: "white" }}>
+    <div style={{ 
+      padding: "20px", 
+      textAlign: "center", 
+      border: "2px solid #ff7b00", 
+      backgroundColor: "white", 
+      maxHeight: "500px", 
+      overflowY: "auto" }}
+      >
       {/* Search Input */}
       <TextField
         label="Search Concert Venues"

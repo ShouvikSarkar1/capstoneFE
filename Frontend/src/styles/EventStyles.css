@@ -1,3 +1,10 @@
 .event-container {
     display: flex;
+    gap: 10px;
 }
+/* .gig-list {
+    overflow-y: scroll;
+    max-height: 600px;
+    border: 2px solid #ff7b00;
+    border-radius: 5px;
+} */
