@@ -1,0 +1,40 @@
+.dashboard-content {
+    display: flex;
+    gap: 40px;
+}
+
+.venue-search{
+    padding-top: 15px;
+}
+
+.google-map {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    padding:15px;
+    position: relative;
+  }
+  
+  #map {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0; /* Just in case the map doesn’t load */
+  }
+  .map-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .map-controls input {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  

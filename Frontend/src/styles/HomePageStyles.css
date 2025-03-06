@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+.homepage-content {
+    display: flex;
+}
+.homepage-photo {
+    padding:25px;
+}
+.homepage-photo img {
+    border: 2px solid #ff7b00;
+    border-radius: 5px;
+    opacity: 0;  /* Start fully transparent */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeIn 1.5s ease-out forwards;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card {
+    margin: 20px auto;  
+    padding: 25px;
+    max-width: 600px;  
+    border: 2px solid #ff7b00;
+    border-radius: 5px;
+    background-color: #222;  
+    color: #fff;  
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-5px);  
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff7b00;
+    margin-bottom: 15px;
+    text-align: center; 
+}
+
+.card-content {
+    padding: 10px;
+    line-height: 1.6;
+    text-align: justify; 
+}
+.card-body img {
+    width: 35em;
+    border: 2px solid #ff7b00;
+    border-radius: 5px;
+}
+.button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #ff7b00;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-family: inherit;
+    background-color: #ff7b00;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Move image up */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.testimonial-box {
+    max-width: 700px;
+    margin: 30px auto;  /* Centers the box */
+    padding: 20px;
+    background-color: #222;  
+    border: 2px solid #ff7b00;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #fff;
+}
+
+.testimonial-header {
+    font-size: 24px;
+    color: #ff7b00;
+    margin-bottom: 15px;
+}
+
+.testimonial {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.testimonial p {
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.testimonial h4 {
+    font-size: 18px;
+    color: #ff7b00;
+    font-weight: bold;
+}
